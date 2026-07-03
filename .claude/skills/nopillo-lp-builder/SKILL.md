@@ -18,7 +18,7 @@ Ce skill **ne fait QUE la LP** : il ne construit pas le formulaire (slot réserv
 | `src/components/HeaderPaid.astro` (navbar = logo seul) | Le **contenu** de chaque section (fourni ou placeholder) |
 | `src/components/FooterPaid.astro` | Les **assets** (fournis ou placeholders) |
 | `src/components/Logo.astro` | Le **slug/URL** de la page |
-| Charte : `src/styles/tokens.css` + `src/styles/global.css` + [10-charte-graphique-figma.md](../../../docs/besoins-lp-paid-ia-nopillo/10-charte-graphique-figma.md) | |
+| Charte : `src/styles/tokens.css` + `src/styles/global.css` (voir aussi [references/charte-nopillo.md](references/charte-nopillo.md), autonome) | |
 
 Réutilise ces éléments tels quels. **Ne réécris jamais** le header, le footer, le layout ou les tokens.
 
@@ -114,7 +114,7 @@ Place les sections choisies dans cet ordre logique (saute celles non choisies) :
 
 ## Charte à respecter (obligatoire)
 
-Applique le design system Nopillo via les classes de `global.css` et les tokens :
+Applique le design system Nopillo. **Référence autonome (toujours dispo)** : [references/charte-nopillo.md](references/charte-nopillo.md) — couleurs, typo, spacing, boutons, sections. Utilise les classes de `global.css` et les tokens :
 - **Boutons** : `.btn .btn-primary` (noir), `.btn-secondary` (indigo), `.btn-ghost`, pill par défaut.
 - **Sections** : alterne `.section-white` / `.section-soft` (lavande) pour éviter deux fonds blancs consécutifs ; `.section-cta` (indigo) pour le CTA final.
 - **Conteneur** : `.container-regular` (1120px) ou un container élargi (max 1400px) pour un hero large.

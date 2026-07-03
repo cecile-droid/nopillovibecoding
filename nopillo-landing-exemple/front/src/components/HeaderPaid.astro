@@ -1,0 +1,31 @@
+---
+import Logo from './Logo.astro'
+---
+<header class="header-paid">
+  <div class="container-navbar header-paid-inner">
+    <Logo />
+  </div>
+</header>
+
+<style>
+  .header-paid {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .header-paid-inner {
+    height: 54px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .header-paid-inner { height: 60px; }
+  }
+</style>
