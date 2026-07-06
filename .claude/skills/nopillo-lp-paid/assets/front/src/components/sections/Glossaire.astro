@@ -1,0 +1,118 @@
+---
+const terms = [
+  { term: 'LMNP', def: 'Loueur en Meublé Non Professionnel : statut fiscal pour les propriétaires louant un bien meublé dont les revenus n\'excèdent pas 23 000 €/an ou 50 % des revenus du foyer.' },
+  { term: 'Liasse fiscale 2031', def: 'Document fiscal annuel obligatoire en régime réel LMNP. Comprend le bilan, le compte de résultat et les annexes. Doit être télétransmise aux impôts avant la date limite.' },
+  { term: 'Amortissement', def: 'Étalement comptable de la valeur d\'un bien sur sa durée d\'usage. En LMNP au réel, vous pouvez amortir le bien immobilier (hors terrain) et le mobilier, réduisant ainsi votre base imposable.' },
+  { term: 'Régime réel vs micro-BIC', def: 'Le micro-BIC applique un abattement forfaitaire de 50 %. Le régime réel permet de déduire les charges réelles ET les amortissements, souvent bien plus avantageux dès que les charges dépassent 30 % des revenus.' },
+  { term: 'Télétransmission', def: 'Envoi dématérialisé de la liasse fiscale au Service des Impôts des Entreprises (SIE) via un partenaire EDI (Échange de Données Informatisé) agréé.' },
+  { term: 'Déficit foncier', def: 'Lorsque les charges dépassent les revenus locatifs, vous dégagez un déficit. En LMNP au réel, ce déficit est reportable sur les revenus de même nature pendant 10 ans.' },
+]
+---
+<section id="glossaire" class="section section-soft">
+  <div class="container-regular" style="max-width: 820px;">
+    <div class="glossary-header">
+      <span class="badge-eyebrow" style="margin-bottom: 16px;">Glossaire LMNP</span>
+      <h2 style="margin-bottom: 12px;">Les termes <span style="color: var(--color-indigo-600);">à connaître</span></h2>
+      <p class="glossary-intro">
+        Un point sur les notions clés du régime LMNP, pour bien comprendre votre fiscalité.
+      </p>
+    </div>
+
+    <dl class="glossary">
+      {terms.map((t) => (
+        <details class="glossary-item" itemscope itemtype="https://schema.org/DefinedTerm">
+          <summary class="glossary-summary">
+            <span class="glossary-term">
+              <span class="glossary-dot" aria-hidden="true"></span>
+              <span itemprop="name">{t.term}</span>
+            </span>
+            <svg class="glossary-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <p class="glossary-def" itemprop="description">{t.def}</p>
+        </details>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .glossary-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .glossary-intro {
+    font-size: 17px;
+    color: var(--color-graycool-700, #404968);
+    line-height: 1.6;
+  }
+
+  .glossary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .glossary-item {
+    background-color: var(--color-brand-white);
+    border: 1px solid var(--color-indigo-100, #DEDAFF);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .glossary-item:hover {
+    border-color: var(--color-indigo-300, #9C90FF);
+  }
+  .glossary-item[open] {
+    box-shadow: 0 6px 22px rgba(64, 51, 219, 0.08);
+  }
+
+  .glossary-item { list-style: none; }
+  .glossary-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .glossary-summary::-webkit-details-marker { display: none; }
+  .glossary-summary::marker { content: ""; }
+
+  .glossary-term {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-brand-black);
+  }
+
+  .glossary-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background-color: var(--color-indigo-600, #4033DB);
+    flex-shrink: 0;
+  }
+
+  .glossary-icon {
+    transition: transform 0.2s ease;
+    color: var(--color-indigo-600, #4033DB);
+    flex-shrink: 0;
+  }
+  .glossary-item[open] .glossary-icon {
+    transform: rotate(180deg);
+  }
+
+  .glossary-def {
+    margin-top: 16px;
+    padding-left: 20px;
+    color: var(--color-graycool-700, #404968);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+</style>

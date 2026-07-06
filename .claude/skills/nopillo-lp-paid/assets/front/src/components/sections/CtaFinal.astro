@@ -1,0 +1,110 @@
+---
+// Section CTA finale (avant footer) — bg indigo-600 + texte blanc + CTA noir/blanc
+---
+<section class="cta-final" aria-label="Appel a l'action">
+  <div class="container-regular cta-final-inner">
+    <div class="cta-final-content">
+      <h2 class="cta-final-title">
+        Simplifiez votre <span>gestion comptable</span><br/>
+        et fiscale LMNP.
+      </h2>
+      <p class="cta-final-subline">
+        Devis gratuit en 2 minutes — sans engagement. Réponse d'un expert sous 24h.
+      </p>
+      <div class="cta-final-actions">
+        <a href="#contact" class="btn btn-cta-white">
+          Démarrer maintenant
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-final {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-indigo-600) 0%, var(--color-indigo-700) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-final-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-final-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw + 0.5rem, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .cta-final-title span {
+    color: var(--color-indigo-100, #DEDAFF);
+  }
+
+  .cta-final-subline {
+    font-size: clamp(16px, 1vw + 0.5rem, 20px);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0 auto 32px;
+    max-width: 540px;
+  }
+
+  .cta-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .btn-cta-white {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: white;
+    color: var(--color-brand-black, #09090B);
+    padding: 20px 32px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-cta-white:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: white;
+    padding: 20px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+  .btn-cta-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+</style>

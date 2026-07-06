@@ -1,0 +1,131 @@
+/* ===================================================================
+   Nopillo Design System — Tokens
+   Source : extraction nopillo.com (88 variables CSS authentiques)
+   Doc : @docs/design-system-extraction/nopillo-extracted/
+   =================================================================== */
+
+:root {
+  /* ===== BRAND ===== */
+  --color-brand-black:   #09090B;   /* Texte default + boutons primaires (PAS #000) */
+  --color-brand-white:   #FFFFFF;
+  --color-brand-primary: #4033DB;   /* Indigo-600 — couleur de marque (CTA section, badges) */
+  --color-brand-soft:    #DEDAFF;   /* Indigo-100 — backgrounds soft, borders cards */
+  --color-brand-mint:    #0CC28C;   /* Secondary-600 — highlights vert */
+
+  /* ===== INDIGO (PRIMAIRE) ===== */
+  --color-indigo-5:   #FAFAFE;
+  --color-indigo-10:  #EEECFF;
+  --color-indigo-50:  #F6F5FD;
+  --color-indigo-100: #DEDAFF;
+  --color-indigo-200: #BDB5FF;
+  --color-indigo-300: #9C90FF;
+  --color-indigo-400: #8275FF;
+  --color-indigo-500: #5747FF;
+  --color-indigo-600: #4033DB;
+  --color-indigo-700: #2D23B7;
+  --color-indigo-800: #1E1693;
+  --color-indigo-900: #0F0167;
+
+  /* ===== GRAYCOOL (NEUTRES) ===== */
+  --color-graycool-25:  #FCFCFD;
+  --color-graycool-50:  #F9F9FB;
+  --color-graycool-100: #EFF1F5;
+  --color-graycool-200: #DCDFEA;
+  --color-graycool-300: #B9C0D4;
+  --color-graycool-400: #7D89B0;
+  --color-graycool-500: #5D6B98;   /* texte muted */
+  --color-graycool-600: #4A5578;
+  --color-graycool-700: #404968;
+  --color-graycool-800: #30374F;
+  --color-graycool-900: #111322;
+
+  /* ===== SECONDARY (VERT MINT) ===== */
+  --color-secondary-10:  #EEFCF0;
+  --color-secondary-50:  #E4FFEA;
+  --color-secondary-100: #CEFDD8;
+  --color-secondary-600: #0CC28C;
+
+  /* ===== ORANGE (HEADBAND) ===== */
+  --color-orange-50:  #FFFBF5;
+  --color-orange-100: #FFF3DF;   /* HEADBAND BG (annonces top) */
+  --color-orange-200: #FFE9C9;
+  --color-orange-600: #FFA057;
+
+  /* ===== NEUTRAL ===== */
+  --color-neutral-50:  #FAFAFA;
+  --color-neutral-200: #EBEBEB;
+  --color-neutral-500: #8E98AD;
+
+  /* ===== DANGER ===== */
+  --color-danger-50:  #FDEAED;
+  --color-danger-500: #DB3352;
+
+  /* ===== TYPOGRAPHY — FAMILIES ===== */
+  --font-display: futura-pt, "Futura PT", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body:    futura-pt, "Futura PT", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* ===== TYPOGRAPHY — SIZES (exacts Nopillo) ===== */
+  --text-xs:         12px;
+  --text-sm:         14px;
+  --text-base:       16px;
+  --text-lg:         18px;
+  --text-xl:         20px;
+  --text-2xl:        24px;
+  --text-3xl:        28px;
+  --text-4xl:        40px;
+  --text-display-sm: 48px;
+  --text-display-md: 56px;   /* H2 section */
+  --text-display-lg: 60px;   /* H1 hero */
+  --text-display-xl: 68px;   /* chiffres cles */
+
+  /* ===== TYPOGRAPHY — WEIGHTS ===== */
+  --font-regular: 400;
+  --font-medium:  500;
+  --font-demi:    600;
+  --font-bold:    700;
+
+  /* ===== TYPOGRAPHY — LINE HEIGHTS ===== */
+  --leading-tight:   1.14;   /* H2 */
+  --leading-snug:    1.22;   /* H1 */
+  --leading-normal:  1.5;    /* body */
+  --leading-relaxed: 1.6;    /* lead */
+
+  /* ===== SPACING ===== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;   /* section padding-y */
+  --space-32: 128px;
+
+  /* ===== RADIUS ===== */
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   16px;   /* CARDS DEFAULT */
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-pill: 999px;  /* BUTTONS */
+
+  /* ===== SHADOWS ===== */
+  --shadow-card:     0 1px 10px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 1px 16px rgba(0, 0, 0, 0.08);
+
+  /* ===== CONTAINERS ===== */
+  --container-regular: 1120px;
+  --container-navbar:  1408px;
+
+  /* ===== TRANSITIONS ===== */
+  --transition-default: all 0.3s ease;
+  --transition-fast:    all 0.15s ease;
+
+  /* ===== Z-INDEX ===== */
+  --z-headband: 99;
+  --z-navbar:   100;
+  --z-modal:    1000;
+}

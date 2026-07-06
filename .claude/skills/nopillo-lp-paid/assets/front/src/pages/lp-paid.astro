@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro'
+import HeaderPaid from '../components/HeaderPaid.astro'
+import FooterPaid from '../components/FooterPaid.astro'
+import HeroPaid from '../components/sections/HeroPaid.astro'
+import StatsBar from '../components/sections/StatsBar.astro'
+import ProblemSolution from '../components/sections/ProblemSolution.astro'
+import Trustpilot from '../components/sections/Trustpilot.astro'
+import Glossaire from '../components/sections/Glossaire.astro'
+import CtaFinal from '../components/sections/CtaFinal.astro'
+---
+<Base
+  title="Passez au régime réel LMNP — 0 € d'impôts sur vos revenus locatifs — Nopillo"
+  description="Passez du micro-BIC au régime réel et économisez +2000 €/an sur vos impôts locatifs. Simulateur, liasse fiscale 2031, télédéclaration : Nopillo s'occupe de tout."
+  showChatbot={false}
+  axeptio={true}
+>
+  <!-- Header minimal : logo seul -->
+  <HeaderPaid />
+
+  <main>
+    <!-- 1. HERO DYNAMIQUE SUIVANT LE KW + SIMULATEUR (matrice brief) -->
+    <HeroPaid />
+
+    <!-- 2. SOCIAL PROOF — chiffres cles -->
+    <StatsBar />
+
+    <!-- 3. LE LOGICIEL / PROBLEME-SOLUTION -->
+    <ProblemSolution />
+
+    <!-- 4. AVIS — Trustpilot dynamique (widget TrustBox, matrice brief) -->
+    <Trustpilot />
+
+    <!-- 6. CONTENU SEMANTIQUE — glossaire des termes fiscaux lies a la recherche (matrice brief) -->
+    <Glossaire />
+
+    <!-- 7. CTA FINAL -->
+    <CtaFinal />
+  </main>
+
+  <FooterPaid />
+</Base>

@@ -1,0 +1,73 @@
+---
+const stats = [
+  { value: '24 M€', label: 'Déjà économisés par nos clients' },
+  { value: '12 000', label: 'Liasses fiscales gérées par nos experts' },
+  { value: '95 %', label: 'De nos clients passent au régime réel' },
+]
+---
+<section class="stats-bar" aria-label="Chiffres clés">
+  <div class="container-regular">
+    <div class="stats-grid">
+      {stats.map((s) => (
+        <div class="stat-block">
+          <p class="stat-value">{s.value}</p>
+          <p class="stat-label">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-bar {
+    padding: 64px 0;
+    background-color: var(--color-brand-white);
+    border-bottom: 1px solid var(--color-indigo-100, #DEDAFF);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+  }
+
+  .stat-block {
+    text-align: left;
+  }
+
+  @media (min-width: 768px) {
+    .stat-block {
+      padding-left: 0;
+      border-left: 1px solid var(--color-indigo-100, #DEDAFF);
+      padding-left: 32px;
+    }
+    .stat-block:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, 68px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--color-brand-black);
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+    color: var(--color-graycool-700, #404968);
+    line-height: 1.5;
+    max-width: 280px;
+  }
+</style>

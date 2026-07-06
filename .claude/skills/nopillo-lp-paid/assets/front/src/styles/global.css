@@ -1,0 +1,246 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* ===================================================================
+   Tailwind 4 — Theme avec tokens Nopillo
+   =================================================================== */
+
+@theme {
+  /* Brand colors mappes pour utilities Tailwind */
+  --color-brand-black: #09090B;
+  --color-brand-primary: #4033DB;
+  --color-brand-soft: #DEDAFF;
+  --color-brand-mint: #0CC28C;
+
+  --color-indigo-50: #F6F5FD;
+  --color-indigo-100: #DEDAFF;
+  --color-indigo-500: #5747FF;
+  --color-indigo-600: #4033DB;
+  --color-indigo-700: #2D23B7;
+  --color-indigo-900: #0F0167;
+
+  --color-graycool-400: #7D89B0;
+  --color-graycool-500: #5D6B98;
+  --color-graycool-700: #404968;
+
+  --color-orange-100: #FFF3DF;
+  --color-orange-200: #FFE9C9;
+
+  --color-mint: #0CC28C;
+
+  --font-sans: futura-pt, "Futura PT", system-ui, -apple-system, sans-serif;
+  --font-display: futura-pt, "Futura PT", system-ui, -apple-system, sans-serif;
+
+  --container-regular: 1120px;
+  --container-navbar: 1408px;
+}
+
+/* ===================================================================
+   Base typography Nopillo (specs exactes)
+   =================================================================== */
+
+html {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-brand-black);
+  background-color: var(--color-brand-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-brand-black);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(40px, 5vw + 1rem, var(--text-display-lg));
+  font-weight: var(--font-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(32px, 4vw + 0.5rem, var(--text-display-md));
+  font-weight: var(--font-demi);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(20px, 2vw + 0.5rem, 26px);
+  font-weight: var(--font-bold);
+  line-height: 1.08;
+}
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ===================================================================
+   Components Nopillo
+   (hors @layer pour priorite sur body{color})
+   =================================================================== */
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    line-height: 1;
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  /* PRIMARY = NOIR (specs Nopillo, pas indigo !) */
+  .btn-primary {
+    background-color: var(--color-brand-black);
+    color: var(--color-brand-white);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-graycool-800);
+  }
+
+  /* SECONDARY = indigo-600 (reserve aux CTAs sections finales) */
+  .btn-secondary {
+    background-color: var(--color-indigo-600);
+    color: var(--color-brand-white);
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-indigo-700);
+  }
+
+  /* OUTLINE = white bg + black border (Espace client style) */
+  .btn-outline {
+    background-color: var(--color-brand-white);
+    color: var(--color-brand-black);
+    border-color: var(--color-brand-black);
+  }
+  .btn-outline:hover {
+    background-color: var(--color-brand-black);
+    color: var(--color-brand-white);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-brand-black);
+  }
+  .btn-ghost:hover {
+    background-color: var(--color-indigo-10);
+  }
+
+  /* Tailles */
+  .btn-sm { padding: 10px 16px; font-size: var(--text-base); }
+  .btn-md { padding: var(--space-5) var(--space-6); font-size: var(--text-lg); }
+  .btn-lg { padding: var(--space-5) var(--space-8); font-size: var(--text-lg); }
+
+  /* ===== CARDS ===== */
+  .card-nopillo {
+    background-color: rgba(255, 255, 255, 0.3);   /* Translucide authentique */
+    border: 1px solid var(--color-indigo-100);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+  }
+
+  .card-solid {
+    background-color: var(--color-brand-white);
+    border: 1px solid var(--color-indigo-100);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* ===== CONTAINERS ===== */
+  .container-regular {
+    max-width: var(--container-regular);
+    margin: 0 auto;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .container-navbar {
+    max-width: var(--container-navbar);
+    margin: 0 auto;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  /* ===== SECTIONS (pattern Nopillo) ===== */
+  .section {
+    padding: var(--space-20) 0;
+  }
+
+  .section-white {
+    background-color: var(--color-brand-white);
+  }
+
+  .section-soft {
+    background-color: rgba(222, 218, 255, 0.6);   /* indigo-100 60% */
+  }
+
+  .section-accent {
+    background-color: var(--color-indigo-100);
+  }
+
+  .section-cta {
+    background-color: var(--color-indigo-600);
+    color: var(--color-brand-white);
+  }
+  .section-cta h2,
+  .section-cta h3 {
+    color: var(--color-brand-white);
+  }
+
+  /* ===== BADGES & CHIPS ===== */
+  .chip-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-brand-white);
+    border: 1px solid var(--color-indigo-100);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-brand-black);
+  }
+
+  .badge-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-brand-white);
+    border: 1px solid var(--color-indigo-100);
+    color: var(--color-indigo-600);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+  }
+
+  /* ===== STATS DISPLAY (chiffres cles) ===== */
+  .stat-display {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, var(--text-display-xl));
+    font-weight: var(--font-bold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-brand-black);
+  }

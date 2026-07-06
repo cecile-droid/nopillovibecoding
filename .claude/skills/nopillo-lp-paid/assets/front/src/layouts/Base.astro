@@ -1,0 +1,132 @@
+---
+import '../styles/global.css'
+import BookingChatbot from '../components/BookingChatbot.tsx'
+
+interface Props {
+  title: string
+  description: string
+  ogImage?: string
+  showChatbot?: boolean
+  axeptio?: boolean
+  noindex?: boolean
+}
+
+const { title, description, ogImage = '/og.png', showChatbot = true, axeptio = false, noindex = true } = Astro.props
+const envGtm = import.meta.env.PUBLIC_GTM_ID
+// Ignore le placeholder GTM-XXXXXX du .env -> vrai conteneur Nopillo par defaut.
+const GTM_ID = envGtm && !envGtm.includes('XXX') ? envGtm : 'GTM-W4PCMHP'
+const GA4_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || 'G-XXXXXXXXXX'
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {/* Axeptio CMP — charge uniquement sur les pages qui le demandent (ex: LP paid).
+        Gere le Google Consent Mode v2 (denied par defaut, update au consentement). */}
+    {axeptio && (
+      <script is:inline>
+        window.axeptioSettings = {
+          clientId: "65a101e82071ac9cf7c32830",
+          cookiesVersion: "fr-12-01-2024",
+          googleConsentMode: {
+            default: {
+              analytics_storage: "denied",
+              ad_storage: "denied",
+              ad_user_data: "denied",
+              ad_personalization: "denied",
+              wait_for_update: 500,
+            },
+          },
+        };
+        (function (d, s) {
+          var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+          e.async = true; e.src = "//static.axept.io/sdk.js";
+          t.parentNode.insertBefore(e, t);
+        })(document, "script");
+      </script>
+    )}
+
+    <meta name="generator" content={Astro.generator} />
+    {/* noindex piloté par la prop (paid only). Si noindex=false, page indexable. */}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Adobe Typekit — Futura PT (kit Nopillo authentique) -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/c1b0b72bff15bb9715f23b2ce31c51654439d865.css" />
+
+    {/* Warm-up des calendriers HubSpot Meetings (ecrans de sortie du form) — LP paid uniquement */}
+    {axeptio && <link rel="preconnect" href="https://api-eu1.hsforms.com" crossorigin />}
+    {axeptio && <link rel="preconnect" href="https://meetings-eu1.hubspot.com" crossorigin />}
+    {axeptio && <link rel="preconnect" href="https://static.hsappstatic.net" crossorigin />}
+    {axeptio && <link rel="preload" as="script" href="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js" />}
+
+    <!-- Consent Mode v2 : denied par defaut -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+      });
+    </script>
+
+    <!-- GTM head -->
+    <script is:inline define:vars={{ GTM_ID }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',GTM_ID);
+    </script>
+
+    {/* HubSpot tracking — plante hutk + alimente hs_analytics_first_url / hs_analytics_last_url */}
+    {!axeptio && (
+      <script type="text/javascript" id="hs-script-loader" async defer src="https://js-eu1.hs-scripts.com/26173790.js"></script>
+    )}
+    {axeptio && (
+      <script is:inline>
+        {/* RGPD : ne charge HubSpot (et donc ne pose le cookie hubspotutk) QU'APRES
+            consentement Axeptio pour le vendor "hubspot". */}
+        window._axcb = window._axcb || [];
+        window._axcb.push(function (axeptio) {
+          axeptio.on("cookies:complete", function (choices) {
+            if (choices && choices.hubspot && !document.getElementById("hs-script-loader")) {
+              var s = document.createElement("script");
+              s.id = "hs-script-loader";
+              s.async = true; s.defer = true;
+              s.src = "https://js-eu1.hs-scripts.com/26173790.js";
+              document.head.appendChild(s);
+            }
+          });
+        });
+      </script>
+    )}
+  </head>
+  <body class="min-h-screen bg-white text-zinc-900 antialiased">
+    <!-- GTM noscript -->
+    <noscript>
+      <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <slot />
+
+    {showChatbot && <BookingChatbot client:visible />}
+  </body>
+</html>

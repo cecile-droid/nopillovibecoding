@@ -1,0 +1,85 @@
+---
+import Logo from './Logo.astro'
+---
+<footer class="footer-paid">
+  <div class="container-regular footer-paid-inner">
+    <div class="footer-paid-brand">
+      <Logo />
+    </div>
+
+    <div class="footer-paid-cols">
+      <div class="footer-paid-col">
+        <h4>Politiques</h4>
+        <ul>
+          <li><a href="/privacy">Politique de confidentialité</a></li>
+          <li><a href="/mentions">Mentions légales</a></li>
+          <li><a href="/cgu">CGU</a></li>
+          <li><a href="#" data-cookie-settings>Préférence cookies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-paid-col">
+        <h4>A propos</h4>
+        <ul>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-paid {
+    padding: 64px 0 56px;
+    background-color: var(--color-brand-white);
+    border-top: 1px solid var(--color-neutral-200, #EBEBEB);
+  }
+
+  .footer-paid-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .footer-paid-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-paid-cols {
+      grid-template-columns: 1fr 1fr;
+      max-width: none;
+    }
+  }
+
+  .footer-paid-col h4 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-brand-black);
+    margin: 0 0 24px;
+  }
+
+  .footer-paid-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-paid-col a {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: var(--color-brand-black);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-paid-col a:hover {
+    color: var(--color-indigo-600, #4033DB);
+  }
+</style>

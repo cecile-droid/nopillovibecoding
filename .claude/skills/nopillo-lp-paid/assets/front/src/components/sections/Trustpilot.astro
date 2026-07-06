@@ -1,0 +1,118 @@
+---
+/**
+ * Avis clients — 3 avis FIXES (temporaire).
+ * TODO : rebrancher le widget TrustBox dynamique quand le Business Unit ID
+ * Trustpilot sera dispo (PUBLIC_TRUSTPILOT_BU_ID).
+ */
+const reviews = [
+  { author: 'Sophie L.', date: 'il y a 3 jours', text: 'Service impeccable. Mon expert a tout pris en charge et m\'a fait économiser 4 200 € la 1re année.' },
+  { author: 'Marc D.', date: 'il y a 1 semaine', text: 'Rapidité et professionnalisme. Liasse 2031 envoyée en 5 jours, sans accroc.' },
+  { author: 'Léa B.', date: 'il y a 2 semaines', text: 'Enfin un expert-comptable LMNP transparent sur les tarifs. Je recommande vivement.' },
+]
+---
+<section class="section trustpilot-section" id="avis">
+  <div class="container-regular">
+    <div class="trustpilot-header">
+      <span class="badge-eyebrow" style="margin-bottom: 16px;">Avis vérifiés</span>
+      <h2>Nos clients <span style="color: var(--color-indigo-600);">parlent</span> de nous</h2>
+      <div class="trustpilot-rating">
+        <div class="trustpilot-stars" aria-label="4,7 sur 5">
+          {Array.from({ length: 5 }).map(() => (
+            <svg width="20" height="20" fill="#00B67A" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.847 1.416 8.252L12 19.771l-7.416 4.076L6 15.595 0 9.748l8.332-1.593z"/></svg>
+          ))}
+        </div>
+        <p class="trustpilot-rating-text"><strong>4,7/5</strong> · basé sur 1 234 avis Trustpilot</p>
+      </div>
+    </div>
+
+    <div class="trustpilot-reviews">
+      {reviews.map((r) => (
+        <article class="trustpilot-review">
+          <div class="trustpilot-review-header">
+            <div class="trustpilot-review-stars" aria-label="5 sur 5">
+              {Array.from({ length: 5 }).map(() => (
+                <svg width="15" height="15" fill="#00B67A" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568L24 9.748l-6 5.847 1.416 8.252L12 19.771l-7.416 4.076L6 15.595 0 9.748l8.332-1.593z"/></svg>
+              ))}
+            </div>
+            <span class="trustpilot-review-date">{r.date}</span>
+          </div>
+          <p class="trustpilot-review-text">« {r.text} »</p>
+          <p class="trustpilot-review-author">— {r.author}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trustpilot-section {
+    background-color: var(--color-brand-white);
+  }
+  .trustpilot-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+  .trustpilot-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .trustpilot-stars {
+    display: flex;
+    gap: 3px;
+  }
+  .trustpilot-rating-text {
+    font-size: 15px;
+    color: var(--color-graycool-700, #404968);
+  }
+  .trustpilot-rating-text strong {
+    color: var(--color-brand-black);
+  }
+
+  .trustpilot-reviews {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .trustpilot-reviews {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .trustpilot-review {
+    background-color: var(--color-brand-white);
+    border: 1px solid var(--color-indigo-100, #DEDAFF);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.04);
+  }
+  .trustpilot-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .trustpilot-review-stars {
+    display: flex;
+    gap: 2px;
+  }
+  .trustpilot-review-date {
+    font-size: 12px;
+    color: var(--color-graycool-500, #5D6B98);
+  }
+  .trustpilot-review-text {
+    color: var(--color-brand-black);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .trustpilot-review-author {
+    font-size: 13px;
+    color: var(--color-graycool-700, #404968);
+    font-weight: 600;
+  }
+</style>

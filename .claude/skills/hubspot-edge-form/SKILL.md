@@ -52,7 +52,7 @@ Tu generes une **Edge Function Supabase** complete et deployee pour forwarder de
 
 ### Phase 2 — Fetch render-definition
 
-Tente les 2 endpoints publics (auto-detect region) :
+**ESSAYER DANS CET ORDRE** (chaque endpoint sur EU puis US) :
 
 ```bash
 # Tente l'URL specifique a la region d'abord

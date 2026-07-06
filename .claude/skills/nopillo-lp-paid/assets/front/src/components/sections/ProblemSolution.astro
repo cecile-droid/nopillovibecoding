@@ -1,0 +1,169 @@
+---
+const benefits = [
+  {
+    icon: 'shield',
+    title: 'Expertise dédiée LMNP',
+    desc: 'Experts-comptables spécialisés depuis 10+ ans. Ils maîtrisent chaque subtilité du régime réel.',
+  },
+  {
+    icon: 'check',
+    title: 'Conformité garantie',
+    desc: 'Liasse fiscale 2031 conforme, télétransmise aux impôts. Aucun risque d\'erreur ou de redressement.',
+  },
+  {
+    icon: 'chat',
+    title: 'Accompagnement perso',
+    desc: 'Expert dédié toute l\'année. Réponses sous 24h, de l\'achat à la revente.',
+  },
+  {
+    icon: 'money',
+    title: 'Optimisation maximale',
+    desc: 'Amortissements optimisés, charges déductibles, déficit reportable — chaque euro compte.',
+  },
+  {
+    icon: 'fast',
+    title: 'Liasse en 7 jours',
+    desc: 'Délai de traitement garanti. Vous recevez votre liasse + preuve de dépôt rapidement.',
+  },
+  {
+    icon: 'fixed',
+    title: 'Prix fixe forfaitaire',
+    desc: '599 €/an tout inclus, pas de surprise. Devis transparent, sans engagement.',
+  },
+]
+---
+<section id="problem" class="section section-soft">
+  <div class="container-regular">
+    <div class="section-header">
+      <span class="badge-eyebrow">Pourquoi Nopillo</span>
+      <h2>Comment <span style="color: var(--color-indigo-600);">optimiser</span> votre imposition LMNP ?</h2>
+      <p class="section-lead">
+        Sans expert, 73 % des propriétaires LMNP passent à côté d'économies fiscales significatives.
+        Voici comment nous changeons la donne.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+      {benefits.map((b) => (
+        <article class="card-nopillo benefit-card">
+          <div class="benefit-icon">
+            {b.icon === 'shield' && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4033DB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            )}
+            {b.icon === 'check' && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4033DB" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            )}
+            {b.icon === 'chat' && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4033DB" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            )}
+            {b.icon === 'money' && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4033DB" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            )}
+            {b.icon === 'fast' && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4033DB" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            )}
+            {b.icon === 'fixed' && (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4033DB" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2" stroke-linecap="round"/><path d="M3 10h18M7 15h2M11 15h6" stroke-linecap="round"/></svg>
+            )}
+          </div>
+          <h3 class="benefit-title">{b.title}</h3>
+          <p class="benefit-desc">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+  }
+
+  .section-header .badge-eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .section-header h2 {
+    margin-bottom: 16px;
+  }
+
+  .section-lead {
+    font-size: 18px;
+    color: var(--color-graycool-700, #404968);
+    line-height: 1.6;
+  }
+
+  .benefits-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    padding: 4px 20px 20px;
+    margin: 0 -20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .benefits-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      overflow: visible;
+      scroll-snap-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+  }
+
+  .benefit-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 640px) {
+    .benefit-card {
+      flex: initial;
+    }
+  }
+
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: var(--color-indigo-100, #DEDAFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .benefit-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-brand-black);
+    line-height: 1.2;
+  }
+
+  .benefit-desc {
+    color: var(--color-graycool-700, #404968);
+    line-height: 1.5;
+    font-size: 15px;
+  }
+</style>
